@@ -303,16 +303,16 @@
             <div class="top-link clearfix hidden-sm hidden-xs">
                 <div class="row">
                     <div class="col-6 social_link">
-                        <div class="social-title">Theo dõi: </div>
-                        <a href=""><i class="fab fa-facebook" style="font-size: 24px; margin-right: 10px"></i></a>
-                        <a href=""><i class="fab fa-instagram" style="font-size: 24px; margin-right: 10px;color: pink;"></i></a>
-                        <a href=""><i class="fab fa-youtube" style="font-size: 24px; margin-right: 10px;color: red;"></i></a>
-                        <a href=""><i class="fab fa-twitter" style="font-size: 24px; margin-right: 10px"></i></a>
+                        <div class="social-title"></div>
+                        <a href=""><i class="" style="font-size: 24px; margin-right: 10px"></i></a>
+                        <a href=""><i class="" style="font-size: 24px; margin-right: 10px;color: pink;"></i></a>
+                        <a href=""><i class="" style="font-size: 24px; margin-right: 10px;color: red;"></i></a>
+                        <a href=""><i class="" style="font-size: 24px; margin-right: 10px"></i></a>
                     </div>
                     <div class="col-6 login_link">
                         <ul class="header_link right m-auto">
                             <li>
-                                <a href="./Login.jsp"><i class="fas fa-sign-in-alt mr-3"></i>Đăng nhập</a>
+                                <a href="./login.jsp"><i class="fas fa-sign-in-alt mr-3"></i>Đăng nhập</a>
                             </li>
                             <li>
                                 <a href="./register.jsp"><i class="fas fa-user-plus mr-3" style="margin-left: 10px;"></i>Đăng kí</a>
