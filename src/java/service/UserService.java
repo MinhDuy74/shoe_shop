@@ -1,49 +1,33 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package service;
 
-import DAO.UserDAO;
+import dao.UserDAO;
 import model.User;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.List;
 
-/**
- *
- * @author admin
- */
 public class UserService {
+    private final UserDAO userDAO = new UserDAO();
 
-    private UserDAO userDAO;
-
-    public UserService(Connection conn) {
-        this.userDAO = new UserDAO(conn);
+    public String validateRegistration(String fullname, String email, String pass, String repass, String gender) {
+        if (isBlank(fullname) || isBlank(email) || isBlank(pass) || isBlank(repass) || isBlank(gender))
+            return "Vui lòng nhập đầy đủ thông tin!";
+        if (!pass.equals(repass))
+            return "Mật khẩu nhập lại không khớp!";
+        if (userDAO.emailExists(email))
+            return "Email đã tồn tại!";
+        if (userDAO.usernameExists(fullname))
+            return "Tên người dùng đã tồn tại!";
+        return null;
     }
 
-    public List<User> getAllUsers() throws SQLException {
-        return userDAO.getAllUsers();
+    public boolean register(User u) {
+        return userDAO.register(u);
     }
 
-    public User getUserById(int id) throws SQLException {
-        return userDAO.getUserById(id);
+    public User login(String email, String password) {
+        if (isBlank(email) || isBlank(password)) return null;
+        return userDAO.login(email, password);
     }
 
-    public User getUserByUsername(String username) throws SQLException {
-        return userDAO.getUserByUsername(username);
-    }
-
-    public boolean addUser(User user) throws SQLException {
-        // Có thể kiểm tra validate, password hash ở đây
-        return userDAO.insertUser(user);
-    }
-
-    public boolean updateUser(User user) throws SQLException {
-        return userDAO.updateUser(user);
-    }
-
-    public boolean deleteUser(int id) throws SQLException {
-        return userDAO.deleteUser(id);
+    private boolean isBlank(String s) {
+        return s == null || s.trim().isEmpty();
     }
 }

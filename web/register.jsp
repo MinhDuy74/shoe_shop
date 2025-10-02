@@ -130,23 +130,6 @@
                     <a href="" class="abc">Đăng kí</a>
                 </li>
             </ul>
-            <!-- <ul class="ul-first-menu">
-              <li>
-                <a href="">Tài khoản của tôi</a>
-              </li>
-              <li>
-                <a href="">Địạ chỉ của tôi</a>
-              </li>
-              <li>
-                <a href="">Đơn mua</a>
-              </li>
-              <li>
-                <a href="" class="list-like-noicte">Danh sách yêu thích</a>
-                <span id="header__second__like--notice" class="header__second__like--notice">3</span>
-              </li>
-              <li>
-                <a href="">Đăng xuất</a>
-              </li> -->
         </ul>
         <div class="la-scroll-fix-infor-user">
             <div class="la-nav-menu-items">
@@ -218,7 +201,7 @@
                                 </ul>
                             </li>
                             <li class="ng-scope ng-has-child2">
-                                <a href="./product.jsp">Già dép<i class="fas fa-plus cong3" onclick="hienthi(3, `abc3`)"></i> <i
+                                <a href="./product.jsp">Giày dép<i class="fas fa-plus cong3" onclick="hienthi(3, `abc3`)"></i> <i
                                         class="fas fa-minus tru3 hidden" onclick="hienthi(3, `abc3`)"></i></a>
                                 <ul class="ul-has-child2 hidden" id="abc3">
                                     <li class="ng-scope">
@@ -318,26 +301,6 @@
                                 <a href="./register.jsp"><i class="fas fa-user-plus mr-3" style="margin-left: 10px;"></i>Đăng kí</a>
                             </li>
                         </ul>
-                        <!-- <ul class="nav nav__first right">
-                            <li class="nav-item nav-item__first nav-item__first-user">
-                              <img src="./img/product/noavatar.png" alt="" class="nav-item__first-img">
-                              <span class="nav-item__first-name">Quốc Trung</span>
-                              <ul class="nav-item__first-menu">
-                                <li class="nav-item__first-item">
-                                  <a href="">Tài khoản của tôi</a>
-                                </li>
-                                <li class="nav-item__first-item">
-                                  <a href="">Địa chỉ của tôi</a>
-                                </li>
-                                <li class="nav-item__first-item">
-                                  <a href="">Đơn mua</a>
-                                </li>
-                                <li class="nav-item__first-item">
-                                  <a href="">Đăng xuất</a>
-                                </li>
-                              </ul>
-                            </li>
-                          </ul> -->
                     </div>
                 </div>
             </div>
@@ -396,12 +359,7 @@
                                 <ul class="col-8 no-padding level0">
                                     <li class="level1">
                                         <a class="hmega" href="./product.jsp">Tất cả sản phẩm</a>
-                                        <!-- <ul class="level1">
-                                            <li class="level2"><a href="">Bóng đá</a></li>
-                                            <li class="level2"><a href="">Bóng đá</a></li>
-                                            <li class="level2"><a href="">Bóng đá</a></li>
-                                            <li class="level2"><a href="">Bóng đá</a></li>
-                                          </ul> -->
+
                                     </li>
                                     <li class="level1">
                                         <a class="hmega">Giày, dép</a>
@@ -458,16 +416,17 @@
         <div class="registration__form">
             <div class="row">
                 <div class="col-sm-12 col-lg-6">
-                    <form action="" method="POST" class="form" id="form-1">
+                    <!-- Sửa action về register, method POST -->
+                    <form action="register" method="POST" class="form" id="form-1" autocomplete="off">
                         <h3 class="heading">ĐĂNG KÍ</h3>
                         <div class="form-group">
                             <label for="fullname" class="form-label">Tên đầy đủ</label>
-                            <input id="fullname" name="fullname" type="text" placeholder="VD: Quốc Trung" class="form-control">
+                            <input id="fullname" name="fullname" type="text" placeholder="VD: Quốc Trung" class="form-control" value="${param.fullname}">
                             <span class="form-message"></span>
                         </div>
                         <div class="form-group">
                             <label for="email" class="form-label">Email</label>
-                            <input id="email" name="email" type="text" placeholder="VD: email@domain.com" class="form-control">
+                            <input id="email" name="email" type="text" placeholder="VD: email@domain.com" class="form-control" value="${param.email}">
                             <span class="form-message"></span>
                         </div>
                         <div class="form-group matkhau">
@@ -476,34 +435,37 @@
                             <span class="show-hide"><i class="fas fa-eye"></i></span>
                             <span class="form-message"></span>
                         </div>
-
                         <div class="form-group matkhau">
                             <label for="password_confirmation" class="form-label">Nhập lại mật khẩu</label>
-                            <input id="password_confirmation" name="password_confirmation" placeholder="Nhập lại mật khẩu"
-                                   type="password" class="form-control">
+                            <input id="password_confirmation" name="password_confirmation" type="password" placeholder="Nhập lại mật khẩu" class="form-control">
                             <span class="show-hide-two"><i class="fas fa-eye fa-eye-2"></i></span>
                             <span class="form-message"></span>
                         </div>
                         <div class="form-group">
-                            <label for="gender" class="form-label">Giới tính</label>
+                            <label class="form-label">Giới tính</label>
                             <div>
-                                <div class="form-check-inline">
-                                    <input type="radio" class="form-check-input" name="gender" value="male">Nam
-                                </div>
-                                <div class="form-check-inline">
-                                    <input type="radio" class="form-check-input" name="gender" value="female">Nữ
-                                </div>
-                                <div class="form-check-inline">
-                                    <input type="radio" class="form-check-input" name="gender" value="order">Khác
-                                </div>
+                                <label class="form-check-inline">
+                                    <input type="radio" class="form-check-input" name="gender" value="male" <c:if test="${param.gender=='male'}"</c:if>> Nam
+                                </label>
+                                <label class="form-check-inline">
+                                    <input type="radio" class="form-check-input" name="gender" value="female" <c:if test="${param.gender=='female'}"</c:if>> Nữ
+                                </label>
+                                <label class="form-check-inline">
+                                    <input type="radio" class="form-check-input" name="gender" value="other" <c:if test="${param.gender=='other'}"</c:if>> Khác
+                                </label>
                             </div>
                             <span class="form-message"></span>
                         </div>
-
-                        <button class="form-submit btn-blocker" style="border-radius: unset;">Đăng ký <i class="fas fa-arrow-right"
-                                                                                                         style="font-size: 16px;margin-left: 10px;"></i></button>
-                        <p style="font-size: 16px;margin: 10px 0;">Bạn đã có tài khoản? <a href="./login.jsp"
-                                                                                           style="color: black; font-weight: bold">Đăng nhập</a></p>
+                        <c:if test="${not empty error}">
+                            <div class="alert alert-danger mt-2">${error}</div>
+                        </c:if>
+                        <c:if test="${not empty success}">
+                            <div class="alert alert-success mt-2">${success}</div>
+                        </c:if>
+                        <a href="login.jsp">Đã có tài khoản? Đăng nhập!</a>
+                        <button class="form-submit btn-blocker" style="border-radius: unset;" type="submit">
+                            Đăng ký <i class="fas fa-arrow-right" style="font-size:16px;margin-left:10px;"></i>
+                        </button>
                     </form>
                 </div>
                 <div class="col-sm-12 col-lg-6">
@@ -511,9 +473,7 @@
                     <p class="text-login">Đăng nhập bằng tài khoản sẽ giúp bạn truy cập:</p>
                     <ul>
                         <li class="text-login-item"><i class="fas fa-check"></i>
-                            <p class="text-login">Một lần đăng nhập chung duy nhất để tương tác với các sản phẩm và dịch vụ của P&T
-                                shop
-                            </p>
+                            <p class="text-login">Một lần đăng nhập chung duy nhất để tương tác với các sản phẩm và dịch vụ của P&T shop</p>
                         </li>
                         <li class="text-login-item"><i class="fas fa-check"></i>
                             <p class="text-login">Thanh toán nhanh hơn</p>
@@ -634,26 +594,25 @@
 <script src="js/main.js" type="text/javascript"></script>
 <script src="js/validator.js" type="text/javascript"></script>
 <script>
-                        Validator({
-                            form: '#form-1',
-                            formGroupSelector: '.form-group',
-                            errorSelector: '.form-message',
-                            rules: [
-                                Validator.isRequired('#fullname', 'Vui lòng nhập tên đầy đủ'),
-                                Validator.isRequired('#email'),
-                                Validator.isEmail('#email'),
-                                Validator.minLength('#password', 6),
-                                Validator.isRequired('#password_confirmation'),
-                                Validator.isRequired('input[name="gender"]'),
-                                Validator.isConfirmed('#password_confirmation', function () {
-                                    return document.querySelector('#form-1 #password').value;
-                                }, 'Mật khẩu nhập lại không chính xác')
-                            ],
-                            onSubmit: function (data) {
-                                // call api
-                                console.log(data);
-                            }
-                        });
+                                            Validator({
+                                                form: '#form-1',
+                                                formGroupSelector: '.form-group',
+                                                errorSelector: '.form-message',
+                                                rules: [
+                                                    Validator.isRequired('#fullname', 'Vui lòng nhập tên đầy đủ'),
+                                                    Validator.isRequired('#email'),
+                                                    Validator.isEmail('#email'),
+                                                    Validator.minLength('#password', 6),
+                                                    Validator.isRequired('#password_confirmation'),
+                                                    Validator.isRequired('input[name="gender"]'),
+                                                    Validator.isConfirmed('#password_confirmation', function () {
+                                                        return document.querySelector('#form-1 #password').value;
+                                                    }, 'Mật khẩu nhập lại không chính xác')
+                                                ],
+                                                onSubmit: function (data) {
+                                                    // Để trống, vì đã submit mặc định lên server
+                                                }
+                                            });
 </script>
 <script>
     const pass_field = document.querySelector('#password');
@@ -667,8 +626,6 @@
             show_btn.classList.remove("hide");
         }
     });
-</script>
-<script>
     const pass_field2 = document.querySelector('#password_confirmation');
     const show_btn2 = document.querySelector('.fa-eye-2')
     show_btn2.addEventListener("click", function () {

@@ -5,43 +5,35 @@
 package model;
 
 import java.util.List;
+
 /**
  *
  * @author admin
  */
 public class User {
 
-    private int userId;
-    private String username;
+    private int user_id;
+    private String fullname;
     private String password;
     private String email;
+    private String gender;
     private String role;
 
-    public User() {
+    // getter/setter đầy đủ
+    public int getUser_id() {
+        return user_id;
     }
 
-    public User(int userId, String username, String password, String email, String role) {
-        this.userId = userId;
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.role = role;
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
-    public int getUserId() {
-        return userId;
+    public String getFullname() {
+        return fullname;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
     }
 
     public String getPassword() {
@@ -58,6 +50,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public String getRole() {

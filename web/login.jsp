@@ -122,23 +122,6 @@
                     <a href="" class="abc">Đăng kí</a>
                 </li>
             </ul>
-            <!-- <ul class="ul-first-menu">
-              <li>
-                <a href="">Tài khoản của tôi</a>
-              </li>
-              <li>
-                <a href="">Địạ chỉ của tôi</a>
-              </li>
-              <li>
-                <a href="">Đơn mua</a>
-              </li>
-              <li>
-                <a href="" class="list-like-noicte">Danh sách yêu thích</a>
-                <span id="header__second__like--notice" class="header__second__like--notice">3</span>
-              </li>
-              <li>
-                <a href="">Đăng xuất</a>
-              </li> -->
         </ul>
         <div class="la-scroll-fix-infor-user">
             <div class="la-nav-menu-items">
@@ -310,26 +293,6 @@
                                 <a href="./register.jsp"><i class="fas fa-user-plus mr-3" style="margin-left: 10px;"></i>Đăng kí</a>
                             </li>
                         </ul>
-                        <!-- <ul class="nav nav__first right">
-                            <li class="nav-item nav-item__first nav-item__first-user">
-                              <img src="./img/product/noavatar.png" alt="" class="nav-item__first-img">
-                              <span class="nav-item__first-name">Quốc Trung</span>
-                              <ul class="nav-item__first-menu">
-                                <li class="nav-item__first-item">
-                                  <a href="">Tài khoản của tôi</a>
-                                </li>
-                                <li class="nav-item__first-item">
-                                  <a href="">Địa chỉ của tôi</a>
-                                </li>
-                                <li class="nav-item__first-item">
-                                  <a href="">Đơn mua</a>
-                                </li>
-                                <li class="nav-item__first-item">
-                                  <a href="">Đăng xuất</a>
-                                </li>
-                              </ul>
-                            </li>
-                          </ul> -->
                     </div>
                 </div>
             </div>
@@ -388,12 +351,6 @@
                                 <ul class="col-8 no-padding level0">
                                     <li class="level1">
                                         <a class="hmega" href="./product.jsp">Tất cả sản phẩm</a>
-                                        <!-- <ul class="level1">
-                                            <li class="level2"><a href="">Bóng đá</a></li>
-                                            <li class="level2"><a href="">Bóng đá</a></li>
-                                            <li class="level2"><a href="">Bóng đá</a></li>
-                                            <li class="level2"><a href="">Bóng đá</a></li>
-                                          </ul> -->
                                     </li>
                                     <li class="level1">
                                         <a class="hmega">Giày, dép</a>
@@ -442,6 +399,9 @@
                     <li class="header_nav-list-item"><a href="./contact.jsp">Liên hệ</a></li>
                 </ul>
             </div>
+            <c:if test="${not empty sessionScope.user}">
+                <li><a href="logout"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
+            </c:if>
         </nav>
     </header>
     <!-- end header -->
@@ -450,22 +410,23 @@
         <div class="login__form">
             <div class="row">
                 <div class="col-sm-12 col-lg-6">
-                    <form action="" method="POST" class="form" id="form-2">
+                    <form action="login" method="POST" class="form" id="form-2">
                         <h3 class="heading">ĐĂNG NHẬP</h3>
                         <a href="" class="form__forgot-password">Bạn quên mật khẩu?</a>
                         <div class="form-group">
                             <label for="email" class="form-label">Email</label>
-                            <input id="email" name="email" type="text" placeholder="VD: email@domain.com" class="form-control">
+                            <input id="email" name="email" type="text" placeholder="VD: email@domain.com" class="form-control" value="${param.email}">
                             <span class="form-message"></span>
                         </div>
-
                         <div class="form-group matkhau">
                             <label for="password" class="form-label">Mật khẩu</label>
                             <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
                             <span class="show-hide"><i class="fas fa-eye" onclick="myFunction()"></i></span>
-                            <!-- <i class="fi-rs-eye-crossed undisplay" onclick="showhide()"></i> -->
                             <span class="form-message"></span>
                         </div>
+                        <c:if test="${not empty error}">
+                            <div class="alert alert-danger mt-2">${error}</div>
+                        </c:if>
                         <button class="form-submit btn-blocker" style="border-radius: unset;">ĐĂNG NHẬP <i class="fas fa-arrow-right"
                                                                                                            style="font-size: 16px;margin-left: 10px;"></i></button>
                         <h4>HOẶC</h4>
@@ -649,9 +610,6 @@
             show_btn.classList.remove("hide");
         }
     }
-    // show_btn.addEventListener("click",function(){
-
-    // });
 </script>
 
 </html>
